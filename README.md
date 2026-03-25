@@ -28,7 +28,7 @@ DB_HOST=localhost
 DB_PORT=5432
 ```
 
-- `STEAM_API_KEY` — get one at [https://steamcommunity.com/dev/apikey](https://steamcommunity.com/dev/apikey)
+- `STEAM_API_KEY` — get one at [https://steamcommunity.com/dev/apikey](https://steamcommunity.com/dev/apikey) //or use the one we are using for this project
 - `DB_NAME` — name of your PostgreSQL database (create it beforehand with `CREATE DATABASE your_database_name;`)
 - `DB_USER` — your PostgreSQL username (default: `postgres`)
 - `DB_PASSWORD` — your PostgreSQL password
