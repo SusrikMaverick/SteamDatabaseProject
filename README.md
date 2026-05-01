@@ -114,7 +114,7 @@ Initialize the schema:
 npm run db:init
 ```
 
-The schema is defined in [db/schema.sql]
+The schema is defined in [db/schema.sql].
 
 ## Running the App
 
