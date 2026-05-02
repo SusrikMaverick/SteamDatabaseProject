@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict VvtzlnFeEd2qlZVV6uUYjYC68XlFg5LX94bvTyM5rGgX5UFuH5SLyGgEn5nLBpy
+\restrict a9a8aHAsfpAx75sTkD6xaemC7IvRyOefjDw0UogjZIMok10hfl2YCbJFTtZ04Tg
 
 -- Dumped from database version 15.15 (Homebrew)
 -- Dumped by pg_dump version 15.15 (Homebrew)
@@ -792,5 +792,5 @@ ALTER TABLE ONLY public.user_endpoint_status
 -- PostgreSQL database dump complete
 --
 
-\unrestrict VvtzlnFeEd2qlZVV6uUYjYC68XlFg5LX94bvTyM5rGgX5UFuH5SLyGgEn5nLBpy
+\unrestrict a9a8aHAsfpAx75sTkD6xaemC7IvRyOefjDw0UogjZIMok10hfl2YCbJFTtZ04Tg
 
