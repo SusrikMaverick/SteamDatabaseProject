@@ -1,4 +1,4 @@
-\restrict aJ3hGoHO1BHFlOqrybvkwAYrDcxRzHE47f0aWQd26Jabgg8d329n2o1BCD9qTYu
+\restrict aaa3mtkziVab1Cv6H8YS2435BIWI1FvfKzexH5x6p6bBElWfhNNPyXuhfJaK43W
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -495,4 +495,4 @@ ALTER TABLE ONLY public.user_endpoint_status
     ADD CONSTRAINT user_endpoint_status_endpoint_name_fkey FOREIGN KEY (endpoint_name) REFERENCES public.endpoint(endpoint_name) ON DELETE CASCADE;
 ALTER TABLE ONLY public.user_endpoint_status
     ADD CONSTRAINT user_endpoint_status_steam_id_fkey FOREIGN KEY (steam_id) REFERENCES public.users(steam_id) ON DELETE CASCADE;
-\unrestrict aJ3hGoHO1BHFlOqrybvkwAYrDcxRzHE47f0aWQd26Jabgg8d329n2o1BCD9qTYu
+\unrestrict aaa3mtkziVab1Cv6H8YS2435BIWI1FvfKzexH5x6p6bBElWfhNNPyXuhfJaK43W
