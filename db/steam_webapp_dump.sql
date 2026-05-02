@@ -1,12 +1,4 @@
---
--- PostgreSQL database dump
---
-
-\restrict a9a8aHAsfpAx75sTkD6xaemC7IvRyOefjDw0UogjZIMok10hfl2YCbJFTtZ04Tg
-
--- Dumped from database version 15.15 (Homebrew)
--- Dumped by pg_dump version 15.15 (Homebrew)
-
+\restrict ETjqi3m4QUES8R5bM6w8NhBprMaa2oCewmh8Dxp5cTnXkqyETWqS0gAz0tcrmn0
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -17,15 +9,8 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
 SET default_tablespace = '';
-
 SET default_table_access_method = heap;
-
---
--- Name: achievements; Type: TABLE; Schema: public; Owner: abdullahhilowle
---
-
 CREATE TABLE public.achievements (
     app_id integer NOT NULL,
     api_name character varying(255) NOT NULL,
@@ -36,14 +21,7 @@ CREATE TABLE public.achievements (
     global_percent numeric(6,3),
     global_stat_last_fetched_at timestamp without time zone
 );
-
-
 ALTER TABLE public.achievements OWNER TO abdullahhilowle;
-
---
--- Name: completes; Type: TABLE; Schema: public; Owner: abdullahhilowle
---
-
 CREATE TABLE public.completes (
     steam_id character varying(32) NOT NULL,
     app_id integer NOT NULL,
@@ -52,25 +30,11 @@ CREATE TABLE public.completes (
     unlock_time timestamp with time zone,
     user_achievement_last_fetched_at timestamp without time zone
 );
-
-
 ALTER TABLE public.completes OWNER TO abdullahhilowle;
-
---
--- Name: endpoint; Type: TABLE; Schema: public; Owner: abdullahhilowle
---
-
 CREATE TABLE public.endpoint (
     endpoint_name character varying(100) NOT NULL
 );
-
-
 ALTER TABLE public.endpoint OWNER TO abdullahhilowle;
-
---
--- Name: games; Type: TABLE; Schema: public; Owner: abdullahhilowle
---
-
 CREATE TABLE public.games (
     app_id integer NOT NULL,
     name character varying(255) NOT NULL,
@@ -91,14 +55,7 @@ CREATE TABLE public.games (
     news_last_fetched_at timestamp without time zone,
     global_achievements_last_fetched_at timestamp without time zone
 );
-
-
 ALTER TABLE public.games OWNER TO abdullahhilowle;
-
---
--- Name: news_articles; Type: TABLE; Schema: public; Owner: abdullahhilowle
---
-
 CREATE TABLE public.news_articles (
     gid character varying(64) NOT NULL,
     app_id integer NOT NULL,
@@ -110,28 +67,14 @@ CREATE TABLE public.news_articles (
     published_at timestamp with time zone,
     article_last_fetched_at timestamp without time zone
 );
-
-
 ALTER TABLE public.news_articles OWNER TO abdullahhilowle;
-
---
--- Name: owns; Type: TABLE; Schema: public; Owner: abdullahhilowle
---
-
 CREATE TABLE public.owns (
     steam_id character varying(32) NOT NULL,
     app_id integer NOT NULL,
     playtime_forever integer DEFAULT 0,
     ownership_last_fetched_at timestamp without time zone
 );
-
-
 ALTER TABLE public.owns OWNER TO abdullahhilowle;
-
---
--- Name: recently_played; Type: TABLE; Schema: public; Owner: abdullahhilowle
---
-
 CREATE TABLE public.recently_played (
     steam_id character varying(32) NOT NULL,
     app_id integer NOT NULL,
@@ -140,14 +83,7 @@ CREATE TABLE public.recently_played (
     recent_last_fetched_at timestamp without time zone,
     last_played_at timestamp with time zone
 );
-
-
 ALTER TABLE public.recently_played OWNER TO abdullahhilowle;
-
---
--- Name: user_endpoint_status; Type: TABLE; Schema: public; Owner: abdullahhilowle
---
-
 CREATE TABLE public.user_endpoint_status (
     steam_id character varying(32) NOT NULL,
     endpoint_name character varying(100) NOT NULL,
@@ -155,14 +91,7 @@ CREATE TABLE public.user_endpoint_status (
     last_checked_at timestamp without time zone,
     details text
 );
-
-
 ALTER TABLE public.user_endpoint_status OWNER TO abdullahhilowle;
-
---
--- Name: users; Type: TABLE; Schema: public; Owner: abdullahhilowle
---
-
 CREATE TABLE public.users (
     steam_id character varying(32) NOT NULL,
     display_name character varying(255),
@@ -170,14 +99,7 @@ CREATE TABLE public.users (
     profile_url text,
     profile_last_fetched_at timestamp without time zone
 );
-
-
 ALTER TABLE public.users OWNER TO abdullahhilowle;
-
---
--- Data for Name: achievements; Type: TABLE DATA; Schema: public; Owner: abdullahhilowle
---
-
 COPY public.achievements (app_id, api_name, display_name, description, icon, icon_gray, global_percent, global_stat_last_fetched_at) FROM stdin;
 1938090	jup_mp_thefirststep	jup_mp_thefirststep	\N	\N	\N	10.000	2026-05-01 16:19:47.766353
 1938090	t10_global_showoff	t10_global_showoff	\N	\N	\N	7.100	2026-05-01 16:19:47.766353
@@ -445,12 +367,6 @@ COPY public.achievements (app_id, api_name, display_name, description, icon, ico
 1145350	AchAllRandomUnderworld	AchAllRandomUnderworld	\N	\N	\N	4.400	2026-05-01 17:44:17.895521
 1145350	AchAllOtherAch	AchAllOtherAch	\N	\N	\N	3.600	2026-05-01 17:44:17.895521
 \.
-
-
---
--- Data for Name: completes; Type: TABLE DATA; Schema: public; Owner: abdullahhilowle
---
-
 COPY public.completes (steam_id, app_id, api_name, achieved, unlock_time, user_achievement_last_fetched_at) FROM stdin;
 76561199744319624	2567870	WINGS_ACHIEVEMENT	f	\N	2026-05-01 16:42:28.487665
 76561199744319624	2567870	TIME_ACHIEVEMENT	f	\N	2026-05-01 16:42:28.487665
@@ -469,23 +385,11 @@ COPY public.completes (steam_id, app_id, api_name, achieved, unlock_time, user_a
 76561199744319624	2567870	THEDEITIES_ACHIEVEMENT	f	\N	2026-05-01 16:42:28.487665
 76561199744319624	2567870	THEGARDEN_ACHIEVEMENT	f	\N	2026-05-01 16:42:28.487665
 \.
-
-
---
--- Data for Name: endpoint; Type: TABLE DATA; Schema: public; Owner: abdullahhilowle
---
-
 COPY public.endpoint (endpoint_name) FROM stdin;
 owned_games
 recently_played
 player_achievements
 \.
-
-
---
--- Data for Name: games; Type: TABLE DATA; Schema: public; Owner: abdullahhilowle
---
-
 COPY public.games (app_id, name, header_image, capsule_image, short_description, detailed_description, website, developers, publishers, genres, categories, platforms, release_date, is_free, price_overview, game_last_fetched_at, news_last_fetched_at, global_achievements_last_fetched_at) FROM stdin;
 2721690	Cod Quest!	\N	https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2721690/17d4d813d79fa4326b0fc6244661491b30f0e0ab/capsule_231x87.jpg?t=1746394319	\N	\N	\N	\N	\N	\N	\N	\N	\N	f	{"final": 699, "initial": 699, "currency": "USD"}	\N	\N	\N
 311210	Call of Duty®: Black Ops III	\N	https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/311210/capsule_231x87.jpg?t=1748022663	\N	\N	\N	\N	\N	\N	\N	\N	\N	f	{"final": 5999, "initial": 5999, "currency": "USD"}	\N	\N	\N
@@ -508,12 +412,6 @@ COPY public.games (app_id, name, header_image, capsule_image, short_description,
 1145350	Hades II	https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/91ac334a2c137d08968ccc0bc474a02579602100/header.jpg?t=1765831644	https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/10c9138570a8d7ac9144f601ab0f2ccbc820337e/capsule_231x87.jpg?t=1765831644	Battle beyond the Underworld using dark sorcery to take on the Titan of Time in this bewitching sequel to the award-winning rogue-like dungeon crawler.	<p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/extras/9eb5e37616fb72c42d6c8e8e918f78d8.poster.avif?t=1765831644" width=780 height=439 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/extras/9eb5e37616fb72c42d6c8e8e918f78d8.webm?t=1765831644" type="video/webm; codecs=vp9"></video></span>The first-ever sequel from Supergiant Games builds on the best aspects of the original <i>god-like </i>rogue-like dungeon crawler in an all-new, action-packed, endlessly replayable experience rooted in the Underworld of Greek myth and its deep connections to the dawn of witchcraft. </p><h2 class="bb_tag" >BATTLE BEYOND THE UNDERWORLD</h2><p class="bb_paragraph" >As the immortal Princess of the Underworld, you'll explore a bigger, deeper mythic world, vanquishing the forces of the Titan of Time with the full might of Olympus behind you, in a sweeping story that continually unfolds through your every setback and accomplishment. </p><h2 class="bb_tag" >MASTER WITCHCRAFT AND DARK SORCERY</h2><p class="bb_paragraph" >Infuse your legendary weapons of Night with ancient magick, so that none may stand in your way. Become stronger still with powerful Boons from more than a dozen Olympian gods, from Apollo to Zeus. There are nearly limitless ways to build your abilities.</p><p class="bb_paragraph" ><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/extras/43c056f0768d57fb1610417dc3f0dbe2.poster.avif?t=1765831644" width=1170 height=659 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/extras/43c056f0768d57fb1610417dc3f0dbe2.webm?t=1765831644" type="video/webm; codecs=vp9"></video></span></p><h2 class="bb_tag" >MINGLE WITH (MORE) GODS, GHOSTS, AND MONSTERS</h2><p class="bb_paragraph" >Meet a cast of dozens of fully-voiced, larger-than-life characters, including plenty of new faces and some old friends. Grow closer to them through a variety of new interactions, and experience countless unique story events based on how your journey unfolds.</p><h2 class="bb_tag" >EVERY RUN IS ITS OWN ADVENTURE</h2><p class="bb_paragraph" >New locations, challenges, upgrade systems, and surprises await as you delve into the ever-shifting Underworld again and again. Reveal the mysteries of the Altar of Ashes, tame witchy familiars, and gather reagents using Tools of the Unseen to get closer to your goal. </p><h2 class="bb_tag" >THE PERKS OF IMMORTALITY</h2><p class="bb_paragraph" >Thanks to a variety of permanent upgrades and the return of God Mode, you don't have to be a god yourself to experience what <strong>Hades II</strong> has to offer. But if you happen to be one, you can brave escalating challenges for greater rewards, and prove just how divine you really are. </p><p class="bb_paragraph" ><span class="bb_img_ctn"><img class="bb_img" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/extras/47ef79096a49518c61cc4a7e6aaae855.avif?t=1765831644" width=1170 height=410 /></span></p><h2 class="bb_tag" >SIGNATURE SUPERGIANT STYLE</h2><p class="bb_paragraph" >Rich, atmospheric presentation and storytelling fused with responsive action is the hallmark of Supergiant's titles. Vivid new hand-painted environments, even smoother real-time 3D characters, and an electrifying original score make this mythic world burst with life.</p>	http://www.supergiantgames.com	["Supergiant Games"]	["Supergiant Games"]	[{"id": "1", "description": "Action"}, {"id": "23", "description": "Indie"}, {"id": "3", "description": "RPG"}]	[{"id": 2, "description": "Single-player"}, {"id": 22, "description": "Steam Achievements"}, {"id": 28, "description": "Full controller support"}, {"id": 29, "description": "Steam Trading Cards"}, {"id": 13, "description": "Captions available"}, {"id": 23, "description": "Steam Cloud"}, {"id": 62, "description": "Family Sharing"}]	{"mac": true, "linux": false, "windows": true}	Sep 25, 2025	f	{"final": 2999, "initial": 2999, "currency": "USD"}	2026-05-01 17:44:17.515779	2026-05-01 17:44:17.791371	2026-05-01 17:44:17.895521
 1245620	ELDEN RING	https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg?t=1767883716	https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/capsule_231x87.jpg?t=1767883716	THE CRITICALLY ACCLAIMED FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.	<h1>ELDEN RING Shadow of the Erdtree Edition</h1><p><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/6e68c7bbe71819c202f190579f8d4f12.poster.avif?t=1767883716" width=616 height=346 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/6e68c7bbe71819c202f190579f8d4f12.webm?t=1767883716" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/6e68c7bbe71819c202f190579f8d4f12.mp4?t=1767883716" type="video/mp4"></video></span><br>ELDEN RING Shadow of the Erdtree Edition includes:<br><ul class="bb_ul"><li>ELDEN RING<br></li><li>ELDEN RING Shadow of the Erdtree expansion</li></ul></p><br><h1>ELDEN RING Shadow of the Erdtree Deluxe Edition</h1><p><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/0856a96484c4fb0a35eee2db28320da2.poster.avif?t=1767883716" width=616 height=346 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/0856a96484c4fb0a35eee2db28320da2.webm?t=1767883716" type="video/webm; codecs=vp9"><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/0856a96484c4fb0a35eee2db28320da2.mp4?t=1767883716" type="video/mp4"></video></span><br>ELDEN RING Shadow of the Erdtree Deluxe Edition includes:<br><ul class="bb_ul"><li>ELDEN RING<br></li><li>ELDEN RING Shadow of the Erdtree expansion<br></li><li>ELDEN RING Digital Artbook &amp; Original Soundtrack<br></li><li>ELDEN RING Shadow of the Erdtree Artbook &amp; Soundtrack</li></ul></p><br><h1>About the Game</h1><strong>THE CRITICALLY ACCLAIMED FANTASY ACTION RPG</strong><br><i>Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring.</i><h2 class="bb_tag" >• A Breathtaking World Full of Excitement and Mystery</h2>The Lands Between are part of a vast continent where magnificent open fields and huge dungeons with complex and three-dimensional designs are seamlessly connected. As you explore, the joy of discovering unknown and overwhelming threats awaits you.<br>Mastery of the terrain and knowledge of its secrets can help you overcome enemies and defeat formidable bosses or lead invading players into traps.<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/b2d503549e33e6603c86b6bd7babdb38.poster.avif?t=1767883716" width=780 height=320 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/b2d503549e33e6603c86b6bd7babdb38.webm?t=1767883716" type="video/webm; codecs=vp9"></video></span><h2 class="bb_tag" >• Defeat Challenging Foes in Intense Combat</h2>Combat in ELDEN RING is simple to learn yet offers hidden depths of mastery. As you seek to become the Elden Lord, you’ll need to explore the balance between attacking and avoiding damage, use a wide variety of weapons, spells, &amp; summons, and perfect your timing to take advantage of your opponents’ weaknesses.<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/61c24948423742d3f67e094fe7be4119.poster.avif?t=1767883716" width=780 height=320 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/61c24948423742d3f67e094fe7be4119.webm?t=1767883716" type="video/webm; codecs=vp9"></video></span><h2 class="bb_tag" >• Create and Build Your Own Character</h2>In addition to customizing the appearance of your character, there are countless ways to combine the weapons, armor, usable items, and magic that you equip. You can develop your character according to your play style.<br>No matter if you prefer bold physical confrontation, tactical spellcasting, or the subtle art of stealth, you’ll be able to find gear that supports your choices.<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/bb8df835b8ac3e772150d98c157e0c41.poster.avif?t=1767883716" width=780 height=320 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/bb8df835b8ac3e772150d98c157e0c41.webm?t=1767883716" type="video/webm; codecs=vp9"></video></span><h2 class="bb_tag" >• An Epic Drama Born from a Myth Created by George R.R. Martin</h2>The founding mythology of Elden Ring was written by George R. R. Martin and adapted into a rich multilayered story. Intersecting goals and desires between the characters create an intense narrative that weaves throughout the Lands Between. The events of the game can unravel in many ways, depending on your interventions.<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/8b612e65bf3ad3c2ee96140999ce5881.poster.avif?t=1767883716" width=780 height=320 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/8b612e65bf3ad3c2ee96140999ce5881.webm?t=1767883716" type="video/webm; codecs=vp9"></video></span><h2 class="bb_tag" >• Play Alongside a Massive Worldwide Community</h2>The Tarnished community is massive and active. Your friends may already be among them. You can play with up to two other Tarnished as your cooperative teammates, either by inviting them using a shared password or by summoning them from a pool of nearby community members.<br>There are also ample opportunities to face off against other players, either through co-op invasions, invited duels, or the many player battle options available in the three Colosseums.<br><br><span class="bb_img_ctn"><video class="bb_img" autoplay muted loop playsinline crossorigin="anonymous" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/8bed670f075526277b71e13a1c614f51.poster.avif?t=1767883716" width=780 height=320 ><source src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/extras/8bed670f075526277b71e13a1c614f51.webm?t=1767883716" type="video/webm; codecs=vp9"></video></span>	\N	["FromSoftware, Inc."]	["FromSoftware, Inc.", "Bandai Namco Entertainment"]	[{"id": "1", "description": "Action"}, {"id": "3", "description": "RPG"}]	[{"id": 2, "description": "Single-player"}, {"id": 1, "description": "Multi-player"}, {"id": 49, "description": "PvP"}, {"id": 36, "description": "Online PvP"}, {"id": 9, "description": "Co-op"}, {"id": 38, "description": "Online Co-op"}, {"id": 22, "description": "Steam Achievements"}, {"id": 28, "description": "Full controller support"}, {"id": 29, "description": "Steam Trading Cards"}, {"id": 67, "description": "Camera Comfort"}, {"id": 68, "description": "Custom Volume Controls"}, {"id": 74, "description": "Playable without Timed Input"}, {"id": 79, "description": "Save Anytime"}, {"id": 69, "description": "Stereo Sound"}, {"id": 70, "description": "Surround Sound"}, {"id": 23, "description": "Steam Cloud"}, {"id": 62, "description": "Family Sharing"}]	{"mac": false, "linux": false, "windows": true}	Feb 24, 2022	f	{"final": 5999, "initial": 5999, "currency": "USD"}	2026-05-01 16:44:56.472099	2026-05-01 16:44:56.655052	2026-05-01 16:44:56.716983
 \.
-
-
---
--- Data for Name: news_articles; Type: TABLE DATA; Schema: public; Owner: abdullahhilowle
---
-
 COPY public.news_articles (gid, app_id, title, url, author, contents, feed_type, published_at, article_last_fetched_at) FROM stdin;
 1830797770234051	1938090	Reloaded Recon: Black Ops 7 and Call of Duty: Warzone Season 03	https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1830797770234051	ATVI_Dov	Raise the Stakes The ongoing battle between JSOC and The Guild heats up as the balance of power shifts. With guidance from Karma, expert infiltrator Cole “Javelin” Donovan has successfully hacked into The Guild’s system using his C-Link device, allowing JSOC to turn The Guild’s own defenses against ...	1	2026-04-23 12:10:39-07	2026-05-01 16:19:47.710091
 1828894815567371	1938090	Steam Global Top Sellers for week of 31 Mar — 7 April 2026	https://steamstore-a.akamaihd.net/news/externalpost/SteamDB/1828894815567371	SteamDB	<a href="https://steamdb.info/topsellers/2026W15/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS"> </a> * <a href="https://steamdb.info/app/3321460/charts/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS">Crimson Desert</a>; * <a href="https://steamdb.info/app/2868840/charts/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS">Slay the Spire 2</a>; * <a href="https://steamdb.info/app/2050650/charts/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS">Resident Evil 4</a>; * <a href="https://steamdb.info/app/2479810/charts/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS">Gray Zone Warfare</a>; * <a href="https://steamdb.info/app/1808500/charts/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS">ARC Raiders</a>; * <a href="https://steamdb.info/app/3784030/charts/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS">RACCOIN: Coin Pusher Roguelike</a>; * <a href="https://steamdb.info/app/1174180/charts/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS">Red Dead Redemption 2</a>; * <a href="https://steamdb.info/app/3240220/charts/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS">Grand Theft Auto V Enhanced</a>; * <a href="https://steamdb.info/app/3472040/charts/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS">NBA 2K26</a>; * <a href="https://steamdb.info/app/1938090/charts/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS">Call of Duty®</a>; <i>* excluding free to play games</i> <a href="https://steamdb.info/topsellers/2026W15/?utm_source=Steam&utm_medium=Steam&utm_campaign=SteamRSS">View top 100 on SteamDB</a>	0	2026-04-07 02:00:00-07	2026-05-01 16:19:47.710091
@@ -548,249 +446,62 @@ COPY public.news_articles (gid, app_id, title, url, author, contents, feed_type,
 1819386365120818	1145350	Hades II Earns 'Best Game on Steam Deck' Award!	https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1819386365120818	kid_zomb	We're thrilled and honored to see Hades II named Best Game on Steam Deck in the Steam Awards!! {STEAM_CLAN_IMAGE}/43315153/649355cc33b8569ecc1c6648fc90cfe6dded0a45.png Thanks so much to everyone who voted, as your votes determined the nominees in each category and ultimately the winners. So many gre...	1	2026-01-03 11:34:35-07	2026-05-01 17:44:17.791371
 1819386365102594	1145350	Yuletide Greetings from Supergiant!	https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1819386365102594	kid_zomb	As the year draws to a close, we wanted to reflect on the times gone by, but mostly to say THANK YOU for supporting Hades II and our team! {STEAM_CLAN_IMAGE}/43315153/6c6d6b770fca9546e0b214a4a7e0d379bfd911a6.png Featured here are some of the familiar faces from the Crossroads, under more-festive cir...	1	2025-12-22 11:19:47-07	2026-05-01 17:44:17.791371
 \.
-
-
---
--- Data for Name: owns; Type: TABLE DATA; Schema: public; Owner: abdullahhilowle
---
-
 COPY public.owns (steam_id, app_id, playtime_forever, ownership_last_fetched_at) FROM stdin;
 76561199744319624	2567870	1	2026-05-01 16:42:25.889922
 \.
-
-
---
--- Data for Name: recently_played; Type: TABLE DATA; Schema: public; Owner: abdullahhilowle
---
-
 COPY public.recently_played (steam_id, app_id, playtime_2weeks, playtime_forever, recent_last_fetched_at, last_played_at) FROM stdin;
 \.
-
-
---
--- Data for Name: user_endpoint_status; Type: TABLE DATA; Schema: public; Owner: abdullahhilowle
---
-
 COPY public.user_endpoint_status (steam_id, endpoint_name, status, last_checked_at, details) FROM stdin;
 76561199744319624	recently_played	private	2026-05-01 16:42:25.888378	Steam did not return recently played data for this user.
 76561199744319624	owned_games	available	2026-05-01 16:42:25.889922	\N
 76561199744319624	player_achievements	private	2026-05-01 16:45:23.66531	Steam did not return player achievement data for this game.
 \.
-
-
---
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: abdullahhilowle
---
-
 COPY public.users (steam_id, display_name, avatar_url, profile_url, profile_last_fetched_at) FROM stdin;
 76561199744319624	ABDULLA_ABDULLA	https://avatars.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg	https://steamcommunity.com/profiles/76561199744319624/	2026-05-01 18:06:28.420276
 \.
-
-
---
--- Name: achievements achievements_pkey; Type: CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.achievements
     ADD CONSTRAINT achievements_pkey PRIMARY KEY (app_id, api_name);
-
-
---
--- Name: completes completes_pkey; Type: CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.completes
     ADD CONSTRAINT completes_pkey PRIMARY KEY (steam_id, app_id, api_name);
-
-
---
--- Name: endpoint endpoint_pkey; Type: CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.endpoint
     ADD CONSTRAINT endpoint_pkey PRIMARY KEY (endpoint_name);
-
-
---
--- Name: games games_pkey; Type: CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.games
     ADD CONSTRAINT games_pkey PRIMARY KEY (app_id);
-
-
---
--- Name: news_articles news_articles_pkey; Type: CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.news_articles
     ADD CONSTRAINT news_articles_pkey PRIMARY KEY (gid);
-
-
---
--- Name: owns owns_pkey; Type: CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.owns
     ADD CONSTRAINT owns_pkey PRIMARY KEY (steam_id, app_id);
-
-
---
--- Name: recently_played recently_played_pkey; Type: CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.recently_played
     ADD CONSTRAINT recently_played_pkey PRIMARY KEY (steam_id, app_id);
-
-
---
--- Name: user_endpoint_status user_endpoint_status_pkey; Type: CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.user_endpoint_status
     ADD CONSTRAINT user_endpoint_status_pkey PRIMARY KEY (steam_id, endpoint_name);
-
-
---
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.users
     ADD CONSTRAINT users_pkey PRIMARY KEY (steam_id);
-
-
---
--- Name: idx_achievements_app_id; Type: INDEX; Schema: public; Owner: abdullahhilowle
---
-
 CREATE INDEX idx_achievements_app_id ON public.achievements USING btree (app_id);
-
-
---
--- Name: idx_completes_lookup; Type: INDEX; Schema: public; Owner: abdullahhilowle
---
-
 CREATE INDEX idx_completes_lookup ON public.completes USING btree (steam_id, app_id);
-
-
---
--- Name: idx_games_name_lower; Type: INDEX; Schema: public; Owner: abdullahhilowle
---
-
 CREATE INDEX idx_games_name_lower ON public.games USING btree (lower((name)::text));
-
-
---
--- Name: idx_news_articles_app_id; Type: INDEX; Schema: public; Owner: abdullahhilowle
---
-
 CREATE INDEX idx_news_articles_app_id ON public.news_articles USING btree (app_id);
-
-
---
--- Name: idx_news_articles_published_at; Type: INDEX; Schema: public; Owner: abdullahhilowle
---
-
 CREATE INDEX idx_news_articles_published_at ON public.news_articles USING btree (published_at DESC);
-
-
---
--- Name: idx_owns_steam_id; Type: INDEX; Schema: public; Owner: abdullahhilowle
---
-
 CREATE INDEX idx_owns_steam_id ON public.owns USING btree (steam_id);
-
-
---
--- Name: idx_recently_played_steam_id; Type: INDEX; Schema: public; Owner: abdullahhilowle
---
-
 CREATE INDEX idx_recently_played_steam_id ON public.recently_played USING btree (steam_id);
-
-
---
--- Name: achievements achievements_app_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.achievements
     ADD CONSTRAINT achievements_app_id_fkey FOREIGN KEY (app_id) REFERENCES public.games(app_id) ON DELETE CASCADE;
-
-
---
--- Name: completes completes_app_id_api_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.completes
     ADD CONSTRAINT completes_app_id_api_name_fkey FOREIGN KEY (app_id, api_name) REFERENCES public.achievements(app_id, api_name) ON DELETE CASCADE;
-
-
---
--- Name: completes completes_steam_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.completes
     ADD CONSTRAINT completes_steam_id_fkey FOREIGN KEY (steam_id) REFERENCES public.users(steam_id) ON DELETE CASCADE;
-
-
---
--- Name: news_articles news_articles_app_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.news_articles
     ADD CONSTRAINT news_articles_app_id_fkey FOREIGN KEY (app_id) REFERENCES public.games(app_id) ON DELETE CASCADE;
-
-
---
--- Name: owns owns_app_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.owns
     ADD CONSTRAINT owns_app_id_fkey FOREIGN KEY (app_id) REFERENCES public.games(app_id) ON DELETE CASCADE;
-
-
---
--- Name: owns owns_steam_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.owns
     ADD CONSTRAINT owns_steam_id_fkey FOREIGN KEY (steam_id) REFERENCES public.users(steam_id) ON DELETE CASCADE;
-
-
---
--- Name: recently_played recently_played_app_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.recently_played
     ADD CONSTRAINT recently_played_app_id_fkey FOREIGN KEY (app_id) REFERENCES public.games(app_id) ON DELETE CASCADE;
-
-
---
--- Name: recently_played recently_played_steam_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.recently_played
     ADD CONSTRAINT recently_played_steam_id_fkey FOREIGN KEY (steam_id) REFERENCES public.users(steam_id) ON DELETE CASCADE;
-
-
---
--- Name: user_endpoint_status user_endpoint_status_endpoint_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.user_endpoint_status
     ADD CONSTRAINT user_endpoint_status_endpoint_name_fkey FOREIGN KEY (endpoint_name) REFERENCES public.endpoint(endpoint_name) ON DELETE CASCADE;
-
-
---
--- Name: user_endpoint_status user_endpoint_status_steam_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: abdullahhilowle
---
-
 ALTER TABLE ONLY public.user_endpoint_status
     ADD CONSTRAINT user_endpoint_status_steam_id_fkey FOREIGN KEY (steam_id) REFERENCES public.users(steam_id) ON DELETE CASCADE;
-
-
---
--- PostgreSQL database dump complete
---
-
-\unrestrict a9a8aHAsfpAx75sTkD6xaemC7IvRyOefjDw0UogjZIMok10hfl2YCbJFTtZ04Tg
-
+\unrestrict ETjqi3m4QUES8R5bM6w8NhBprMaa2oCewmh8Dxp5cTnXkqyETWqS0gAz0tcrmn0
