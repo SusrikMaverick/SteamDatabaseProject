@@ -1,4 +1,4 @@
-\restrict ETjqi3m4QUES8R5bM6w8NhBprMaa2oCewmh8Dxp5cTnXkqyETWqS0gAz0tcrmn0
+\restrict aJ3hGoHO1BHFlOqrybvkwAYrDcxRzHE47f0aWQd26Jabgg8d329n2o1BCD9qTYu
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -21,7 +21,6 @@ CREATE TABLE public.achievements (
     global_percent numeric(6,3),
     global_stat_last_fetched_at timestamp without time zone
 );
-ALTER TABLE public.achievements OWNER TO abdullahhilowle;
 CREATE TABLE public.completes (
     steam_id character varying(32) NOT NULL,
     app_id integer NOT NULL,
@@ -30,11 +29,9 @@ CREATE TABLE public.completes (
     unlock_time timestamp with time zone,
     user_achievement_last_fetched_at timestamp without time zone
 );
-ALTER TABLE public.completes OWNER TO abdullahhilowle;
 CREATE TABLE public.endpoint (
     endpoint_name character varying(100) NOT NULL
 );
-ALTER TABLE public.endpoint OWNER TO abdullahhilowle;
 CREATE TABLE public.games (
     app_id integer NOT NULL,
     name character varying(255) NOT NULL,
@@ -55,7 +52,6 @@ CREATE TABLE public.games (
     news_last_fetched_at timestamp without time zone,
     global_achievements_last_fetched_at timestamp without time zone
 );
-ALTER TABLE public.games OWNER TO abdullahhilowle;
 CREATE TABLE public.news_articles (
     gid character varying(64) NOT NULL,
     app_id integer NOT NULL,
@@ -67,14 +63,12 @@ CREATE TABLE public.news_articles (
     published_at timestamp with time zone,
     article_last_fetched_at timestamp without time zone
 );
-ALTER TABLE public.news_articles OWNER TO abdullahhilowle;
 CREATE TABLE public.owns (
     steam_id character varying(32) NOT NULL,
     app_id integer NOT NULL,
     playtime_forever integer DEFAULT 0,
     ownership_last_fetched_at timestamp without time zone
 );
-ALTER TABLE public.owns OWNER TO abdullahhilowle;
 CREATE TABLE public.recently_played (
     steam_id character varying(32) NOT NULL,
     app_id integer NOT NULL,
@@ -83,7 +77,6 @@ CREATE TABLE public.recently_played (
     recent_last_fetched_at timestamp without time zone,
     last_played_at timestamp with time zone
 );
-ALTER TABLE public.recently_played OWNER TO abdullahhilowle;
 CREATE TABLE public.user_endpoint_status (
     steam_id character varying(32) NOT NULL,
     endpoint_name character varying(100) NOT NULL,
@@ -91,7 +84,6 @@ CREATE TABLE public.user_endpoint_status (
     last_checked_at timestamp without time zone,
     details text
 );
-ALTER TABLE public.user_endpoint_status OWNER TO abdullahhilowle;
 CREATE TABLE public.users (
     steam_id character varying(32) NOT NULL,
     display_name character varying(255),
@@ -99,7 +91,6 @@ CREATE TABLE public.users (
     profile_url text,
     profile_last_fetched_at timestamp without time zone
 );
-ALTER TABLE public.users OWNER TO abdullahhilowle;
 COPY public.achievements (app_id, api_name, display_name, description, icon, icon_gray, global_percent, global_stat_last_fetched_at) FROM stdin;
 1938090	jup_mp_thefirststep	jup_mp_thefirststep	\N	\N	\N	10.000	2026-05-01 16:19:47.766353
 1938090	t10_global_showoff	t10_global_showoff	\N	\N	\N	7.100	2026-05-01 16:19:47.766353
@@ -504,4 +495,4 @@ ALTER TABLE ONLY public.user_endpoint_status
     ADD CONSTRAINT user_endpoint_status_endpoint_name_fkey FOREIGN KEY (endpoint_name) REFERENCES public.endpoint(endpoint_name) ON DELETE CASCADE;
 ALTER TABLE ONLY public.user_endpoint_status
     ADD CONSTRAINT user_endpoint_status_steam_id_fkey FOREIGN KEY (steam_id) REFERENCES public.users(steam_id) ON DELETE CASCADE;
-\unrestrict ETjqi3m4QUES8R5bM6w8NhBprMaa2oCewmh8Dxp5cTnXkqyETWqS0gAz0tcrmn0
+\unrestrict aJ3hGoHO1BHFlOqrybvkwAYrDcxRzHE47f0aWQd26Jabgg8d329n2o1BCD9qTYu
